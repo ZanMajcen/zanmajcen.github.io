@@ -13,7 +13,7 @@ body {
 }
 
 body {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Kaisei HarunoUmi', serif;
     background-color: #0d0d0d;
     color: #e8e8e8;
     display: flex;
@@ -62,6 +62,7 @@ body {
     width: 100%;
     position: relative;
     z-index: 1;
+    overflow: visible;
 }
 
 /* ── Left: Image ──────────────────────────────────────────── */
@@ -77,6 +78,61 @@ body {
     overflow: hidden;
     background-color: #1a1a1a;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s ease;
+    z-index: 2;
+    will-change: transform;
+}
+
+/* Expanded / interactive state */
+.hero__slideshow.expanded {
+    transform: scale(1.5);
+    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+}
+
+/* ── Slide nav arrows ─────────────────────────────────────── */
+.slide-nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    background: transparent;
+    border: none;
+    color: transparent;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3;
+    padding: 0 12px;
+    /* Hidden until expanded */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease, color 0.2s ease;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.slide-nav--prev {
+    left: 0;
+    justify-content: flex-start;
+}
+
+.slide-nav--next {
+    right: 0;
+    justify-content: flex-end;
+}
+
+/* Show arrows only when expanded */
+.hero__slideshow.expanded .slide-nav {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.slide-nav:hover {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .hero__slideshow .slide {
@@ -100,6 +156,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Slide the text panel right when the slideshow is expanded */
+.hero.expanded .hero__info {
+    transform: translateX(calc(clamp(240px, 32vw, 380px) * 0.5));
 }
 
 /* Name */
@@ -229,7 +292,18 @@ body {
 }
 
 /* Show correct icon based on muted state */
-.mute-btn .icon-muted { display: none; }
-.mute-btn.muted .icon-sound { display: none; }
-.mute-btn.muted .icon-muted { display: block; }
-.mute-btn.muted { color: rgba(255, 255, 255, 0.3); }
+.mute-btn .icon-muted {
+    display: none;
+}
+
+.mute-btn.muted .icon-sound {
+    display: none;
+}
+
+.mute-btn.muted .icon-muted {
+    display: block;
+}
+
+.mute-btn.muted {
+    color: rgba(255, 255, 255, 0.3);
+}
