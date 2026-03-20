@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Žan Majcen — Gallery</title>
+    <meta name="description"
+        content="The personal gallery and portfolio of Žan Majcen. Explore artwork, learn about the artist, and get in touch.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <!-- Ambient background: blurred mirror of the current slide -->
+    <div class="ambient-bg" aria-hidden="true">
+        <img class="ambient-slide active" src="images/homepage/image1.jpeg" alt="">
+        <img class="ambient-slide" src="" alt="">
+    </div>
+
+    <!-- Mute toggle -->
+    <button class="mute-btn" id="mute-btn" aria-label="Mute sound" title="Mute / Unmute">
+        <!-- Speaker on -->
+        <svg class="icon-sound" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        </svg>
+        <!-- Speaker muted -->
+        <svg class="icon-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+    </button>
+
+    <main class="hero">
+        <!-- Left: Portrait / Featured Image -->
+        <div class="hero__image-wrap">
+            <div class="hero__slideshow" id="hero-slideshow" aria-label="Artist portrait slideshow">
+                <img src="images/homepage/image1.jpeg" alt="Žan Majcen artwork 1" class="slide active">
+                <img src="images/homepage/image2.jpeg" alt="Žan Majcen artwork 2" class="slide">
+                <img src="images/homepage/image3.jpeg" alt="Žan Majcen artwork 3" class="slide">
+                <img src="images/homepage/image4.jpeg" alt="Žan Majcen artwork 4" class="slide">
+                <img src="images/homepage/image5.jpeg" alt="Žan Majcen artwork 5" class="slide">
+                <img src="images/homepage/image6.jpeg" alt="Žan Majcen artwork 6" class="slide">
+                <img src="images/homepage/image7.jpeg" alt="Žan Majcen artwork 7" class="slide">
+                <img src="images/homepage/image8.jpeg" alt="Žan Majcen artwork 8" class="slide">
+            </div>
+        </div>
+
+        <!-- Right: Info Panel -->
+        <div class="hero__info">
+            <h1 class="hero__name">Žan Majcen</h1>
+
+            <p class="hero__bio">
+                Malesuada nunc lectus congue posuere. Etiam at suscipit suscipit ridiculus fermentum convallis est.
+                Duis velit placerat arcu at nec. Velit sagittis vel pharetra sagittis felis odio massa sit. Mauris
+                viverra non eu semper. Mattis leo diam sapien ante. Aliquet phasellus aliquam eu habitant libero.
+            </p>
+
+            <nav class="hero__nav" aria-label="Main navigation">
+                <a href="#gallery" class="nav-item" id="nav-gallery">
+                    <span class="nav-item__arrow" aria-hidden="true">&#9654;</span>
+                    <span class="nav-item__label">Gallery</span>
+                </a>
+                <a href="#about" class="nav-item" id="nav-about">
+                    <span class="nav-item__arrow" aria-hidden="true">&#9654;</span>
+                    <span class="nav-item__label">About me</span>
+                </a>
+                <a href="#contact" class="nav-item" id="nav-contact">
+                    <span class="nav-item__arrow" aria-hidden="true">&#9654;</span>
+                    <span class="nav-item__label">Contact</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
