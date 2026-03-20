@@ -202,8 +202,8 @@ body {
     font-weight: 400;
     letter-spacing: 0.04em;
     padding: 6px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: color 0.2s ease, gap 0.2s ease;
+    border-bottom: none;
+    transition: transform 0.2s ease, color 0.2s ease;
     cursor: pointer;
 }
 
@@ -225,17 +225,11 @@ body {
 
 /* Hover state */
 .nav-item:hover {
-    color: #ffffff;
-    gap: 24px;
+    transform: translateX(8px);
 }
 
 .nav-item:hover .nav-item__arrow {
-    transform: translateX(4px);
     color: #aaaaaa;
-}
-
-.nav-item:hover .nav-item__label {
-    letter-spacing: 0.08em;
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
