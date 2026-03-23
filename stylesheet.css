@@ -234,23 +234,85 @@ body {
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 640px) {
+
+    /* Allow the page to scroll naturally on mobile */
     body {
         align-items: flex-start;
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
+    /* Stack image above info, centre everything */
     .hero {
         flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        padding: 48px 20px 40px;
+    }
+
+    /* Make image wrap fill the column */
+    .hero__image-wrap {
+        width: 100%;
+    }
+
+    /* Slideshow fills width; use aspect-ratio so portrait images look right */
+    .hero__slideshow {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        /* Disable desktop transform-origin so expand stays centred */
+        transform-origin: center center;
+    }
+
+    /* On mobile the slideshow "expand" should be a subtle in-place zoom,
+       not a 1.5× scale that blows past the screen edges */
+    .hero__slideshow.expanded {
+        transform: scale(1.06);
+    }
+
+    /* Cancel the desktop info-panel translateX shift — it makes no sense
+       in a stacked vertical layout and causes horizontal overflow */
+    .hero.expanded .hero__info {
+        transform: none;
+    }
+
+    /* Info panel fills the column */
+    .hero__info {
+        width: 100%;
         align-items: flex-start;
     }
 
-    .hero__slideshow {
-        width: 100%;
-        height: 260px;
+    /* Slightly smaller headline, tighter margin */
+    .hero__name {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+        margin-bottom: 16px;
     }
 
+    /* Bio: smaller text, less bottom gap */
     .hero__bio {
         max-width: 100%;
+        font-size: 0.85rem;
+        line-height: 1.7;
+        margin-bottom: 28px;
+    }
+
+    /* Nav links: comfortable tap targets */
+    .hero__nav {
+        gap: 14px;
+        width: 100%;
+    }
+
+    .nav-item {
+        font-size: 0.95rem;
+        padding: 8px 0;
+    }
+
+    /* Slightly smaller mute button so it doesn't crowd the corner */
+    .mute-btn {
+        top: 14px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
     }
 }
 
